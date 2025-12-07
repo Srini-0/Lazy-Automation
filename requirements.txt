@@ -1,0 +1,5 @@
+# Testing dependencies
+pytest>=7.4.0
+hypothesis>=6.82.0
+
+# No runtime dependencies - uses Python standard library only

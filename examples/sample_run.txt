@@ -1,0 +1,118 @@
+============================================================
+LAZY DOWNLOADS ORGANIZER - SAMPLE DRY RUN OUTPUT
+============================================================
+
+$ python -m lazy_downloader.organizer -t ~/Downloads --dry-run
+
+============================================================
+Starting organization [DRY RUN]
+Target directory: /Users/username/Downloads
+============================================================
+INFO: Found 10 files to process
+INFO: [DRY RUN] Would create category folder: Images
+INFO: [DRY RUN] Would move: vacation_photo.jpg -> /Users/username/Downloads/Images/vacation_photo.jpg
+INFO: [DRY RUN] Would move: screenshot.png -> /Users/username/Downloads/Images/screenshot.png
+INFO: [DRY RUN] Would create category folder: Videos
+INFO: [DRY RUN] Would move: tutorial.mp4 -> /Users/username/Downloads/Videos/tutorial.mp4
+INFO: [DRY RUN] Would create category folder: Documents
+INFO: [DRY RUN] Would move: invoice.pdf -> /Users/username/Downloads/Documents/invoice.pdf
+INFO: [DRY RUN] Would move: report.docx -> /Users/username/Downloads/Documents/report.docx
+INFO: [DRY RUN] Would create category folder: Audio
+INFO: [DRY RUN] Would move: podcast.mp3 -> /Users/username/Downloads/Audio/podcast.mp3
+INFO: [DRY RUN] Would create category folder: Archives
+INFO: [DRY RUN] Would move: backup.zip -> /Users/username/Downloads/Archives/backup.zip
+INFO: [DRY RUN] Would create category folder: Code
+INFO: [DRY RUN] Would move: script.py -> /Users/username/Downloads/Code/script.py
+INFO: [DRY RUN] Would create category folder: Others
+INFO: [DRY RUN] Would move: readme.txt -> /Users/username/Downloads/Documents/readme.txt
+INFO: [DRY RUN] Would move: unknown_file.xyz -> /Users/username/Downloads/Others/unknown_file.xyz
+============================================================
+Organization Summary:
+============================================================
+  Archives: 1 files
+  Audio: 1 files
+  Code: 1 files
+  Documents: 3 files
+  Images: 2 files
+  Others: 1 files
+  Videos: 1 files
+============================================================
+Total: 10 files processed
+============================================================
+
+============================================================
+SAMPLE RUN WITH RENAMING
+============================================================
+
+$ python -m lazy_downloader.organizer -t ~/Downloads --no-dry-run -r "{index}_{name}"
+
+============================================================
+Starting organization [ACTUAL]
+Target directory: /Users/username/Downloads
+Rename pattern: {index}_{name}
+============================================================
+INFO: Found 10 files to process
+INFO: Created category folder: Images
+INFO: Renamed: vacation_photo.jpg -> 1_vacation_photo.jpg
+INFO: Moved: vacation_photo.jpg -> /Users/username/Downloads/Images/1_vacation_photo.jpg
+INFO: Renamed: screenshot.png -> 2_screenshot.png
+INFO: Moved: screenshot.png -> /Users/username/Downloads/Images/2_screenshot.png
+INFO: Created category folder: Videos
+INFO: Renamed: tutorial.mp4 -> 1_tutorial.mp4
+INFO: Moved: tutorial.mp4 -> /Users/username/Downloads/Videos/1_tutorial.mp4
+INFO: Created category folder: Documents
+INFO: Renamed: invoice.pdf -> 1_invoice.pdf
+INFO: Moved: invoice.pdf -> /Users/username/Downloads/Documents/1_invoice.pdf
+INFO: Renamed: report.docx -> 2_report.docx
+INFO: Moved: report.docx -> /Users/username/Downloads/Documents/2_report.docx
+INFO: Renamed: readme.txt -> 3_readme.txt
+INFO: Moved: readme.txt -> /Users/username/Downloads/Documents/3_readme.txt
+INFO: Created category folder: Audio
+INFO: Renamed: podcast.mp3 -> 1_podcast.mp3
+INFO: Moved: podcast.mp3 -> /Users/username/Downloads/Audio/1_podcast.mp3
+INFO: Created category folder: Archives
+INFO: Renamed: backup.zip -> 1_backup.zip
+INFO: Moved: backup.zip -> /Users/username/Downloads/Archives/1_backup.zip
+INFO: Created category folder: Code
+INFO: Renamed: script.py -> 1_script.py
+INFO: Moved: script.py -> /Users/username/Downloads/Code/1_script.py
+INFO: Created category folder: Others
+INFO: Renamed: unknown_file.xyz -> 1_unknown_file.xyz
+INFO: Moved: unknown_file.xyz -> /Users/username/Downloads/Others/1_unknown_file.xyz
+============================================================
+Organization Summary:
+============================================================
+  Archives: 1 files
+  Audio: 1 files
+  Code: 1 files
+  Documents: 3 files
+  Images: 2 files
+  Others: 1 files
+  Videos: 1 files
+============================================================
+Total: 10 files processed
+============================================================
+
+✅ Organization complete! Your Downloads folder is now organized.
+
+============================================================
+COLLISION HANDLING EXAMPLE
+============================================================
+
+When a file with the same name already exists in the destination:
+
+INFO: Collision detected, using: photo_1.jpg
+INFO: Moved: photo.jpg -> /Users/username/Downloads/Images/photo_1.jpg
+
+The tool automatically appends _1, _2, _3, etc. to avoid overwriting files.
+
+============================================================
+LOG FORMAT EXPLANATION
+============================================================
+
+INFO:    Normal operation messages
+DEBUG:   Detailed information (use -v flag)
+WARNING: Non-fatal issues
+ERROR:   Failed operations (processing continues)
+
+============================================================
