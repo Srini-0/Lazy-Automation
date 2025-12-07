@@ -1,0 +1,12 @@
+{
+  "project": "lazy-downloads-organizer",
+  "version": "0.1.0",
+  "description": "Automatically organizes the Downloads folder by file type. Built for Kiro Week 2: Lazy Automation.",
+  "entrypoint": "lazy_downloader/organizer.py",
+  "commands": {
+    "run": "python -m lazy_downloader.organizer",
+    "test": "python -m pytest"
+  },
+  "author": "YOUR NAME",
+  "tags": ["python", "automation", "downloads", "kiro"]
+}
